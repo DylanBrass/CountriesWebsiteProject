@@ -13,10 +13,23 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/Questions")
+@RequestMapping("/api/questions")
 public class QuestionController {
     @Autowired
     QuestionService questionService;
+
+
+    @GetMapping("/{countryId}/questions")
+    public List<QuestionResponse> getAllQuestionsByCountryId(@RequestParam() long countryId) {
+
+        List<Question> questions = questionService.getAllQuestionsByCountryID(countryId);
+        List<QuestionResponse> questionResponses = new ArrayList<>();
+        questions.forEach(question -> {
+            QuestionResponse questionResponse = new QuestionResponse(question);
+            questionResponses.add(questionResponse);
+        });
+        return questionResponses;
+    }
 
     @GetMapping()
     public List<QuestionResponse> getAllQuestions() {

@@ -1,5 +1,6 @@
 package com.example.countryproject.entity;
 
+import com.example.countryproject.request.QuestionRequest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -34,4 +35,13 @@ public class Question {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name="country_id")
     private Country country;
+
+
+    public Question (QuestionRequest questionRequest){
+        Question = questionRequest.getQuestion();
+        Answer = questionRequest.getAnswer();
+        FakeAnswerOne = questionRequest.getFakeAnswerOne();
+        FakeAnswerTwo = questionRequest.getFakeAnswerTwo();
+        FakeAnswerThree = questionRequest.getFakeAnswerThree();
+    }
 }

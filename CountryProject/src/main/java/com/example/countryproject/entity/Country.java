@@ -31,6 +31,11 @@ public class Country {
 
     @Column(name="flag_past_url")
     private String FamousFlagPast;
+    @Column(name="map_url")
+    private String map;
+
+    @Column(name = "history_text", columnDefinition = "text")
+    private String History;
 
     @OneToOne(cascade = CascadeType.ALL)
     private ModernFlag modernFlag;

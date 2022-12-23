@@ -6,6 +6,7 @@ import com.example.countryproject.entity.Question;
 import javax.persistence.Column;
 
 public class QuestionResponse {
+    public long Id;
     public String Question;
     public String Answer;
 
@@ -14,10 +15,11 @@ public class QuestionResponse {
     public String FakeAnswerThree;
 
     public QuestionResponse(Question question){
+        Id = question.getId();
         Question = question.getQuestion();
         Answer = question.getAnswer();
         FakeAnswerOne = question.getFakeAnswerOne();
-        FakeAnswerOne = question.getFakeAnswerTwo();
-        FakeAnswerOne = question.getFakeAnswerThree();
+        FakeAnswerTwo = question.getFakeAnswerTwo();
+        FakeAnswerThree = question.getFakeAnswerThree();
     }
 }
