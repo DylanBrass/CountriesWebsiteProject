@@ -48,6 +48,5 @@ public class Country {
         dateFounded=countryRequest.getDateFounded();
         famousFlagPast=countryRequest.getFamousFlagPast();
         map=countryRequest.getMap();
-        modernFlag=new ModernFlag(countryRequest.getModernFlag());
     }
 }

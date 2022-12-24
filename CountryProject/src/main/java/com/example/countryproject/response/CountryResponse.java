@@ -23,7 +23,6 @@ public class CountryResponse {
 
     private Date DateFounded;
 
-    @Valid
     private ModernFlagResponse modernFlag;
 
     private String FamousFlagPast;
@@ -42,5 +41,6 @@ public class CountryResponse {
 
         if(country.getModernFlag()!=null)
         modernFlag = new ModernFlagResponse((country.getModernFlag()));
+
     }
 }

@@ -3,10 +3,7 @@ package com.example.countryproject.request;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.security.PublicKey;
 
 @Getter
 @Setter
@@ -22,6 +19,4 @@ public class QuestionRequest {
     @NotBlank
     private String fakeAnswerThree;
 
-    @NotNull
-    private CountryRequest country;
 }

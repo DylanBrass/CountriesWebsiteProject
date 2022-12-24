@@ -34,6 +34,7 @@ public class CountryController {
         return countryResponses;
     }
 
+
     @GetMapping("/{countryId}/questions")
     public List<QuestionResponse> getAllQuestions(@PathVariable long countryId){
         List<Question> questions = countryService.getAllQuestions(countryId);
@@ -43,6 +44,15 @@ public class CountryController {
         }
 
         return courseResponses;
+    }
+
+    @PutMapping("/{id}/questions")
+    public QuestionResponse updateQuestion
+            (@PathVariable long id,
+             @Valid @RequestBody QuestionRequest questionRequest){
+
+        Question updatedQuestion = countryService.updateQuestion(id, questionRequest);
+        return new QuestionResponse(updatedQuestion);
     }
 
     @ResponseStatus(HttpStatus.CREATED)

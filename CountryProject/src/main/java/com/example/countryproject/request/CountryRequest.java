@@ -27,7 +27,6 @@ public class CountryRequest
     private  String historyText;
 
     private String map;
-    @Valid
-    private ModernFlagRequest modernFlag;
+
 
 }
