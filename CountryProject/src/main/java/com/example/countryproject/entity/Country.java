@@ -1,4 +1,5 @@
 package com.example.countryproject.entity;
+import com.example.countryproject.request.CountryRequest;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,19 +25,29 @@ public class Country {
     private String countryName;
 
     @Column(name="description", nullable = false)
-    private String Description;
+    private String description;
 
     @Column(name="date_founded", nullable = false)
-    private Date DateFounded;
+    private Date dateFounded;
 
     @Column(name="flag_past_url")
-    private String FamousFlagPast;
+    private String famousFlagPast;
     @Column(name="map_url")
     private String map;
 
     @Column(name = "history_text", columnDefinition = "text")
-    private String History;
+    private String history;
 
     @OneToOne(cascade = CascadeType.ALL)
     private ModernFlag modernFlag;
+
+    public Country(CountryRequest countryRequest){
+        id=countryRequest.getId();
+        countryName=countryRequest.getCountryName();
+        description=countryRequest.getDescription();
+        dateFounded=countryRequest.getDateFounded();
+        famousFlagPast=countryRequest.getFamousFlagPast();
+        map=countryRequest.getMap();
+        modernFlag=new ModernFlag(countryRequest.getModernFlag());
+    }
 }

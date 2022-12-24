@@ -14,19 +14,21 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ModernFlagResponse {
+    private long id;
     private String creator;
 
-    private String Description;
+    private String description;
 
-    private String FlagPhoto;
+    private String flagPhoto;
 
-    private Date DateUsed;
+    private Date dateUsed;
 
     public ModernFlagResponse(ModernFlag modernFlag){
+        id=modernFlag.getId();
         creator = modernFlag.getCreator();
-        Description = modernFlag.getDescription();
-        FlagPhoto = modernFlag.getFlagPhoto();
-        DateUsed= modernFlag.getDateUsed();
+        description = modernFlag.getDescription();
+        flagPhoto = modernFlag.getFlagPhoto();
+        dateUsed= modernFlag.getDateUsed();
     }
 
 }

@@ -2,12 +2,14 @@ package com.example.countryproject.controller;
 
 import com.example.countryproject.entity.Country;
 import com.example.countryproject.entity.Question;
+import com.example.countryproject.request.QuestionRequest;
 import com.example.countryproject.response.CountryResponse;
 import com.example.countryproject.response.QuestionResponse;
 import com.example.countryproject.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,5 +32,20 @@ public class QuestionController {
             questionResponses.add(questionResponse);
         });
         return questionResponses;
+    }
+
+    @PutMapping("/{id}")
+    public QuestionResponse updateQuestion
+            (@PathVariable long id,
+             @Valid @RequestBody QuestionRequest questionRequest){
+
+        Question updatedQuestion = questionService.updateQuestion(id, questionRequest);
+        return new QuestionResponse(updatedQuestion);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteQuestion(@PathVariable long id)
+    {
+        questionService.deleteQuestion(id);
     }
 }

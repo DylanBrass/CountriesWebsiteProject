@@ -43,5 +43,6 @@ public class Question {
         FakeAnswerOne = questionRequest.getFakeAnswerOne();
         FakeAnswerTwo = questionRequest.getFakeAnswerTwo();
         FakeAnswerThree = questionRequest.getFakeAnswerThree();
+        country=new Country(questionRequest.getCountry());
     }
 }

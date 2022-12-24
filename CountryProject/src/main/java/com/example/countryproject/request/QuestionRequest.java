@@ -5,18 +5,23 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.security.PublicKey;
 
 @Getter
 @Setter
 public class QuestionRequest {
     @NotBlank
-    public String Question;
+    private String question;
     @NotBlank
-    public String Answer;
+    private String answer;
     @NotBlank
-    public String FakeAnswerOne;
+    private String fakeAnswerOne;
     @NotBlank
-    public String FakeAnswerTwo;
+    private String fakeAnswerTwo;
     @NotBlank
-    public String FakeAnswerThree;
+    private String fakeAnswerThree;
+
+    @NotNull
+    private CountryRequest country;
 }

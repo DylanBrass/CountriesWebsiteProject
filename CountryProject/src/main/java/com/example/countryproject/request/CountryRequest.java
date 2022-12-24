@@ -1,6 +1,7 @@
 package com.example.countryproject.request;
 
 
+import com.example.countryproject.response.ModernFlagResponse;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,16 +13,20 @@ import java.sql.Date;
 @Setter
 public class CountryRequest
 {
+@NotBlank
+    private long id;
+@NotBlank
+    private String countryName;
+@NotBlank
+    private String description;
+@NotBlank
+    private Date dateFounded;
 
-    @NotBlank
-    private String CountryName;
-    @NotBlank
-    private String Description;
-    @NotBlank
-    private Date DateFounded;
-    @NotBlank
-    private String FlagToday;
+    private String famousFlagPast;
 
+    private  String historyText;
+
+    private String map;
     @Valid
     private ModernFlagRequest modernFlag;
 

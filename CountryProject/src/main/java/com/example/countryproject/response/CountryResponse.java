@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import java.sql.Date;
 
 @Getter
@@ -22,7 +23,8 @@ public class CountryResponse {
 
     private Date DateFounded;
 
-    private ModernFlagResponse FlagToday;
+    @Valid
+    private ModernFlagResponse modernFlag;
 
     private String FamousFlagPast;
 
@@ -39,6 +41,6 @@ public class CountryResponse {
         HistoryText = country.getHistory();
 
         if(country.getModernFlag()!=null)
-        FlagToday = new ModernFlagResponse((country.getModernFlag()));
+        modernFlag = new ModernFlagResponse((country.getModernFlag()));
     }
 }

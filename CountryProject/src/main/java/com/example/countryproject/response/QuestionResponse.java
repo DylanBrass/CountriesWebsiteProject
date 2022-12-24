@@ -14,6 +14,8 @@ public class QuestionResponse {
     public String FakeAnswerTwo;
     public String FakeAnswerThree;
 
+    public Country country;
+
     public QuestionResponse(Question question){
         Id = question.getId();
         Question = question.getQuestion();
@@ -21,5 +23,6 @@ public class QuestionResponse {
         FakeAnswerOne = question.getFakeAnswerOne();
         FakeAnswerTwo = question.getFakeAnswerTwo();
         FakeAnswerThree = question.getFakeAnswerThree();
+        country = question.getCountry();
     }
 }
