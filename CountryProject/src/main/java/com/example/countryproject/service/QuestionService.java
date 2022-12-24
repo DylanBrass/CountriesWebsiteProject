@@ -16,18 +16,10 @@ public class QuestionService {
     @Autowired
     private QuestionRepository questionRepository;
 
-    public Question getQuestion(long Id)
-    {
-        Question question = questionRepository.findById(Id).orElseThrow(()->new ResourceNotFoundException("Question id not found"));
-        return question;
-    }
     public List<Question> getAllQuestions() {
 
         return (List<Question>) questionRepository.findAll();
 
     }
-    public List<Question> getAllQuestionsByCountryID(long countryId) {
 
-        return (List<Question>) questionRepository.findAll();
-    }
 }
