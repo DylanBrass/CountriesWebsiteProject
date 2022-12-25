@@ -23,19 +23,7 @@ public class QuestionService {
 
     }
 
-    public Question updateQuestion(long id, QuestionRequest questionRequest){
-        if(questionRepository.existsById(id))
-        {
-            Question oldQuestion = questionRepository.findById(id).orElseThrow();
-            Question questionToBeUpdated = new Question(questionRequest);
-            questionToBeUpdated.setId(id);
-            questionToBeUpdated.setCountry(oldQuestion.getCountry());
-            return questionRepository.save(questionToBeUpdated);
-        }
-        else{
-            throw new ResourceNotFoundException("Question id not found");
-        }
-    }
+
 
     public void deleteQuestion(long id){
         if(questionRepository.existsById(id)){

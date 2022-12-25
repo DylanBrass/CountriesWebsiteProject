@@ -34,15 +34,6 @@ public class QuestionController {
         return questionResponses;
     }
 
-    @PutMapping("/{id}")
-    public QuestionResponse updateQuestion
-            (@PathVariable long id,
-             @Valid @RequestBody QuestionRequest questionRequest){
-
-        return new QuestionResponse(questionService.updateQuestion(id, questionRequest));
-
-    }
-
     @DeleteMapping("/{id}")
     public void deleteQuestion(@PathVariable long id)
     {
